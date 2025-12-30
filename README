@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <title>DecApp</title>
+    <meta name="description" content="Make confident decisions faster with AI-powered analysis based on your personal values.">
+    <meta name="keywords" content="decision maker, ai decision, pros and cons, choice helper">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="DecApp">
+    <meta property="og:description" content="Make confident decisions faster.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- React -->
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel -->
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #475569; /* Slate 600 */
+            --primary-light: #94a3b8; /* Slate 400 */
+            --accent-color: #0ea5e9; /* Sky 500 */
+            --bg-color: #f8fafc; /* Slate 50 */
+            --card-bg: #ffffff;
+            --text-main: #0f172a; /* Slate 900 */
+            --text-muted: #64748b; /* Slate 500 */
+            
+            --radius-md: 12px;
+            --radius-lg: 20px;
+        }
+
+        .dark {
+            --primary-color: #cbd5e1; /* Slate 300 */
+            --primary-light: #475569; /* Slate 600 */
+            --accent-color: #38bdf8; /* Sky 400 */
+            --bg-color: #020617; /* Slate 950 */
+            --card-bg: #1e293b; /* Slate 800 */
+            --text-main: #f8fafc; /* Slate 50 */
+            --text-muted: #94a3b8; /* Slate 400 */
+        }
+    }
+
+    @layer base {
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            -webkit-tap-highlight-color: transparent;
+        }
+    }
+
+    @layer components {
+        .btn {
+            @apply px-4 py-3 rounded-[var(--radius-md)] font-medium transition-all duration-200 flex items-center justify-center gap-2 active:scale-95;
+        }
+        .btn-primary {
+            @apply bg-[var(--text-main)] text-white hover:bg-slate-800 shadow-md shadow-slate-200;
+        }
+        .btn-secondary {
+            @apply bg-white text-[var(--text-main)] border border-slate-200 hover:bg-slate-50;
+        }
+        .btn-accent {
+            @apply bg-[var(--accent-color)] text-white hover:opacity-90 shadow-md shadow-sky-100;
+        }
+        .btn-ghost {
+            @apply bg-transparent text-[var(--text-muted)] hover:bg-slate-100;
+        }
+        .input-field {
+            @apply w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--primary-light)] focus:border-transparent transition-all;
+        }
+        .card {
+            @apply bg-[var(--card-bg)] rounded-[var(--radius-lg)] p-5 shadow-sm border border-slate-100;
+        }
+        .page-container {
+            @apply max-w-md mx-auto min-h-screen bg-[var(--bg-color)] relative shadow-2xl shadow-slate-200/50 overflow-hidden;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        .animate-slide-up {
+            animation: slideUp 0.4s ease-out forwards;
+        }
+    }
+
+    @layer utilities {
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    }
+    </style>
+    <script>
+        // Save ChartJS to window to avoid conflicts
+        window.ChartJS = window.Chart;
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <!-- Utilities -->
+    <script type="text/babel" src="utils/storage.js"></script>
+    <script type="text/babel" src="utils/ai.js"></script>
+
+    <!-- Components -->
+    <script type="text/babel" src="components/Layout.js"></script>
+    <script type="text/babel" src="components/Alert.js"></script>
+    <script type="text/babel" src="components/Onboarding.js"></script>
+    <script type="text/babel" src="components/Home.js"></script>
+    <script type="text/babel" src="components/DecisionForm.js"></script>
+    <script type="text/babel" src="components/AnalysisResult.js"></script>
+    <script type="text/babel" src="components/History.js"></script>
+    <script type="text/babel" src="components/Settings.js"></script>
+
+    <!-- App Entry -->
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>
