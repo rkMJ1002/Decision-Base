@@ -1,2 +1,14 @@
 # Decision-software-base
-A minimalist, AI-powered decision-making app that helps users compare options and choose based on their personal values.
+A modern, AI-powered Decision Helper mobile app that helps users make better decisions by analyzing pros/cons based on their personal values.
+
+Features:
+- Onboarding: personalized value selection.
+- Decision Input: Intuitive form for weighing options.
+- AI Analysis: Context-aware recommendations (Powered by AI).
+- History: Track past decisions (Free for everyone).
+- Donation: Support the developer via Ko-fi.
+                               
+Tech Stack:
+- React 18
+- TailwindCSS
+- Local Storage for data persistence
